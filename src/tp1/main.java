@@ -4,8 +4,5 @@ public class main {
 		System.out.println("SOY FERMIN CON PABLO");
 
 		MySimpleLinkedList<T> miListita = new MySimpleLinkedList();
-
-
-
 	}
 }

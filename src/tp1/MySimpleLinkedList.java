@@ -1,47 +1,103 @@
-package ProgramacionIII.tp1;
+package tp1;
+
 
 public class MySimpleLinkedList<T> {
-	
-	private Node<T> first;/usr/libexec/java_home -Vcle
+
+	private Node<T> first;
 	private int size;
 
 	public MySimpleLinkedList() {
 		this.first = null;
 		this.size = 0;
 	}
-	
+
 	public void insertFront(T info) {
 		Node<T> tmp = new Node<T>(info,null);
 		tmp.setNext(this.first);
 		this.first = tmp;
-		this.size = size + 1;
+		this.size = this.size + 1;
 	}
-	
+
 	public T extractFront() {
-		Node<T> tmp = this.first;
-		this.first = first.getNext();
-		size = size - 1;
-		return tmp;
+		T info = this.first.getInfo();
+		this.first = this.first.getNext();
+		this.size = this.size-1;
+		return info;
 	}
 
 	public boolean isEmpty() {
-		// TODO
-		return false;
+		return (this.first.getNext() == null);
 	}
-	
+
 	public T get(int index) {
-		// TODO
-		return null;
+		if (index < 0 || index >= this.size)
+			return null;
+
+		Node<T> tmp = this.first;
+
+		for (int i = 0; i < index; i++){
+			tmp = tmp.getNext();
+		}
+		return tmp.getInfo();
 	}
-	
-	public int getSize() {
-		return  size;
+
+	public int size() {
+		return this.size;
 	}
-	
+
 	@Override
 	public String toString() {
-		// TODO
-		return "";
+		String result = "";
+		Node<T> temp= this.first;
+		while (temp!= null) {
+			result += temp.getInfo();
+			if (temp.getNext() != null) {
+				result += " -> ";
+			}
+			temp= temp.getNext();
+		}
+		return result;
 	}
-	
+	public int indexOf(T elemento) {
+		Node<T> tmp = this.first;
+		int index = 0;
+
+		while (tmp != null) {
+
+			if (tmp.getInfo().equals(elemento)) {
+				return index;
+			}
+			tmp = tmp.getNext();
+			index++;
+		}
+
+		return -1;
+	}
+
+	public MySimpleLinkedList<Integer> DevolverComunes(MySimpleLinkedList<Integer> lista1, MySimpleLinkedList<Integer> lista2){
+		MySimpleLinkedList<Integer> salida = new MySimpleLinkedList<>();
+
+
+		Node<Integer> tmp1 = lista1.first;
+		Node<Integer> tmp2 = lista2.first;
+
+		while (tmp1 != null){
+			while (tmp2 != null){
+				if (tmp1.getInfo().equals(tmp2.getInfo())){
+					salida.insertFront(tmp1.getInfo());
+				}
+				System.out.println("tmp2__"+tmp2.getInfo());
+				tmp2 = tmp2.getNext();
+
+			}
+			System.out.println("tmp1__"+tmp1.getInfo());
+			tmp1 = tmp1.getNext();
+		}
+
+
+
+		return salida;
+	}
+
+
 }
