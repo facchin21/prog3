@@ -1,4 +1,4 @@
-package ProgramacionIII.tp1;
+package tp1;
 
 public class Node<T> {
 

@@ -77,27 +77,44 @@ public class MySimpleLinkedList<T> {
 	public MySimpleLinkedList<Integer> DevolverComunes(MySimpleLinkedList<Integer> lista1, MySimpleLinkedList<Integer> lista2){
 		MySimpleLinkedList<Integer> salida = new MySimpleLinkedList<>();
 
-
 		Node<Integer> tmp1 = lista1.first;
-		Node<Integer> tmp2 = lista2.first;
 
 		while (tmp1 != null){
+			Node<Integer> tmp2 = lista2.first;
 			while (tmp2 != null){
 				if (tmp1.getInfo().equals(tmp2.getInfo())){
 					salida.insertFront(tmp1.getInfo());
 				}
-				System.out.println("tmp2__"+tmp2.getInfo());
 				tmp2 = tmp2.getNext();
-
 			}
-			System.out.println("tmp1__"+tmp1.getInfo());
 			tmp1 = tmp1.getNext();
 		}
 
+		salida.first = MergeSort.sort(salida.first);
+		return salida;
+	}
+
+	public MySimpleLinkedList<Integer> DevolverComunesListasOrdenadas(MySimpleLinkedList<Integer> lista1, MySimpleLinkedList<Integer> lista2){
+		MySimpleLinkedList<Integer> salida = new MySimpleLinkedList<>();
+
+		Node<Integer> tmp1 = lista1.first;
+		Node<Integer> tmp2 = lista2.first;
+
+		while (tmp1 != null && tmp2 != null){	
+			if(tmp1.getInfo().equals(tmp2.getInfo())){
+				salida.insertFront(tmp1.getInfo());
+				tmp1 = tmp1.getNext();
+				tmp2 = tmp2.getNext();
+			}else if(tmp1.getInfo() > tmp2.getInfo()){
+				tmp2 = tmp2.getNext();
+			}else{
+				tmp1 = tmp1.getNext();
+			}
+		
+		}
 
 
 		return salida;
 	}
-
 
 }

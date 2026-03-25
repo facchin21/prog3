@@ -1,0 +1,12 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Run tp1.Main",
+      "request": "launch",
+      "mainClass": "tp1.Main",
+      "projectName": "Programacion3_c219e3f0"
+    }
+  ]
+}
