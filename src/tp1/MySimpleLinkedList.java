@@ -73,7 +73,7 @@ public class MySimpleLinkedList<T> {
 
 		return -1;
 	}
-
+// Ejercicio 5a
 	public MySimpleLinkedList<Integer> DevolverComunes(MySimpleLinkedList<Integer> lista1, MySimpleLinkedList<Integer> lista2){
 		MySimpleLinkedList<Integer> salida = new MySimpleLinkedList<>();
 
@@ -94,6 +94,7 @@ public class MySimpleLinkedList<T> {
 		return salida;
 	}
 
+// Ejercicio 5b
 	public MySimpleLinkedList<Integer> DevolverComunesListasOrdenadas(MySimpleLinkedList<Integer> lista1, MySimpleLinkedList<Integer> lista2){
 		MySimpleLinkedList<Integer> salida = new MySimpleLinkedList<>();
 
@@ -110,11 +111,36 @@ public class MySimpleLinkedList<T> {
 			}else{
 				tmp1 = tmp1.getNext();
 			}
-		
 		}
-
-
 		return salida;
 	}
 
+	// Ejercicio 6
+	public MySimpleLinkedList<Integer> DevolverNoCoumnesEnListaDos(MySimpleLinkedList<Integer> lista1, MySimpleLinkedList<Integer> lista2){
+		MySimpleLinkedList<Integer> salida = new MySimpleLinkedList<>();
+
+		Node<Integer> tmp1 = lista1.first;
+		while (tmp1 != null){
+			// Obtener el valor del nodo actual
+			Integer valor = tmp1.getInfo();
+
+			if (!lista2.contains(valor) && !salida.contains(valor)) {
+				salida.insertFront(valor);
+			}
+			tmp1 = tmp1.getNext();
+		}
+		return salida;
+	}
+
+	public boolean contains(T elemento){
+
+		Node<T> tmp = this.first;
+		while (tmp != null){
+			if (tmp.getInfo().equals(elemento)){
+				return true;
+			}
+			tmp = tmp.getNext();
+		}
+		return false;
+	}
 }
