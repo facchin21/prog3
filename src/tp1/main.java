@@ -37,7 +37,16 @@ public class main {
 		// lista4.insertFront(9);
 		// lista4.insertFront(4);
 
-		System.out.println("resultado 5b: " + miListita.DevolverComunesListasOrdenadas(lista1, lista2));
-		System.out.println("resultado 6: " + miListita.DevolverNoCoumnesEnListaDos(lista1, lista2));
+		MyDoubleLinkedList<Integer> listaDoble = new MyDoubleLinkedList<>();
+		listaDoble.insertFront(4);
+		listaDoble.insertFront(3);
+		listaDoble.insertFront(2);
+		listaDoble.insertFront(1);
+		System.out.println(listaDoble);
+
+		listaDoble.borrarPosX(1);
+		System.out.println(listaDoble);
+
+
 	}
 }
