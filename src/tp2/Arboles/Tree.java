@@ -32,5 +32,29 @@ public class Tree {
 			}
 		}
 	}
+	private void ImprimirPreOrden(TreeNode nodo){
+		if (nodo == null){
+			return;
+		}
+		System.out.println(nodo.getValue() + "");
+		ImprimirPreOrden(nodo.getLeft());
+		ImprimirPreOrden(nodo.getRight());
+	}
+	private void ImprimirEnOrden(TreeNode nodo){
+		if (nodo == null){
+			return;
+		}
+		ImprimirEnOrden(nodo.getLeft());
+		System.out.println(nodo.getValue() + "");
+		ImprimirEnOrden(nodo.getRight());
+	}
+	private void ImprimirPostOrden(TreeNode nodo){
+		if(nodo == null){
+			return;
+		}
+		ImprimirPostOrden(nodo.getLeft());
+		ImprimirPostOrden(nodo.getRight());
+		System.out.println(nodo.getValue() + "");
+	}
 	
 }
